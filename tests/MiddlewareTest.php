@@ -9,7 +9,6 @@ use Prophecy\Prophecy\MethodProphecy;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Shoot\Http\Context;
 use Shoot\Http\Middleware;
 use Shoot\Shoot\PipelineInterface;
 
@@ -49,7 +48,7 @@ final class MiddlewareTest extends TestCase
 
         /** @var MethodProphecy $withContextMethod */
         $withContextMethod = $pipelineProphecy
-            ->withContext(Argument::type(Context::class), Argument::type('callable'))
+            ->withContext(Argument::type(ServerRequestInterface::class), Argument::type('callable'))
             ->willReturn($this->response);
 
         /** @var PipelineInterface $pipeline */

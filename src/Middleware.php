@@ -33,9 +33,7 @@ final class Middleware implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $context = new Context($request);
-
-        return $this->pipeline->withContext($context, function () use ($request, $handler): ResponseInterface {
+        return $this->pipeline->withContext($request, function () use ($request, $handler): ResponseInterface {
             return $handler->handle($request);
         });
     }
