@@ -13,6 +13,7 @@
             "email": "victorwelling@gmail.com"
         }
     ],
+    "abandoned": "shoot/shoot",
     "scripts": {
         "test": "phpunit"
     },
